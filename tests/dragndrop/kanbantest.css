@@ -1,0 +1,21 @@
+.task {
+  width: 10em;
+  background-color: lightgrey;
+  border: solid 1px red;
+}
+
+.noselect * {
+  user-select: none;
+}
+
+.column {
+  padding: 1em;
+  background-color: grey;
+  border: solid 1px black;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.dragged {
+  display: none;
+}
