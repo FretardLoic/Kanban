@@ -9,7 +9,9 @@
   </head>
   <body>
     <div class='kanban'>
-      <div class='column' id='todo' ondragover="allowDrop(event);" ondrop="drop(event);">
+      <div class='column' id='todo'
+        ondragover="allowDrop(event);"
+        ondrop="dropTask(event);">
         <h1>To Do</h1>
       <?php
         foreach (array('plop', 'plip', 'plup', 'plap', 'plep') as $task) {
@@ -17,7 +19,8 @@
         <div class='task' draggable='true'
           ondragstart="dragTask(event);"
           ondrop="dropTask(event);"
-          ondragover="allowDrop(event);" >
+          ondragover="allowDrop(event);"
+          ondragend="cancelDrag(event)" >
           <?php echo $task; ?>
         </div>
       <?php
