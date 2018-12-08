@@ -7,29 +7,21 @@
     <noscript>Cette application nécessite javascript</noscript>
     <title>Kanban</title>
   </head>
-  <body>
+  <body onload='initListeners();' >
     <div class='kanban'>
-      <div class='column' id='todo'
-        ondragover="allowDrop(event);"
-        ondrop="dropTask(event);">
+      <div class='column' id='todo' >
         <h1>To Do</h1>
       <?php
         foreach (array('plop', 'plip', 'plup', 'plap', 'plep') as $task) {
       ?>
-        <div class='task' draggable='true'
-          ondragstart="dragTask(event);"
-          ondrop="dropTask(event);"
-          ondragover="allowDrop(event);"
-          ondragend="cancelDrag(event)" >
+        <div class='task' draggable='true' >
           <?php echo $task; ?>
         </div>
       <?php
         }
       ?>
       </div>
-      <div class='column' id='done'
-        ondragover="allowDrop(event);"
-        ondrop="dropTask(event);" >
+      <div class='column' id='done' >
         <h1>Done</h1>
 
       </div>
