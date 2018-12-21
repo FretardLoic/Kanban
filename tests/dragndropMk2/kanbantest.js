@@ -1,19 +1,16 @@
 'use strict';
 
-// utilisation des évènements "drag and drop" 
+// utilisation des évènements de souris
 
 function dragTask(ev) {
-  ev.dataTransfer.setData('tasks', 'move');
   ev.currentTarget.classList.add('dragged');
-  ev.dataTransfer.effectAllowed='all';
-  ev.dataTransfer.dropEffect='move';
 }
 
 function dropTask(ev) {
   ev.preventDefault();    // drop interdit par défaut
   ev.stopPropagation();   // évite le double drop
 
-  if (ev.dataTransfer.getData('tasks') == 'move') {
+  if (ev.dataTransfer.getData('dragged') == 'tasks') {
     var tasks = document.getElementsByClassName('dragged task');
     switch (ev.currentTarget.className) {
       case 'column':
