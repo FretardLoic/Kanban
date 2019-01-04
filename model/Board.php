@@ -6,10 +6,10 @@
     private $columns;
     private $title;
 
-    public function __construct() {
-      $this->id = -1
-      $this->title = '';
-      $this->columns = array();
+    public function __construct($title = 'New board', $cols = array()) {
+      $this->id = -1;
+      $this->title = $title;
+      $this->columns = $cols;
     }
 
     public function getId() {
@@ -22,6 +22,10 @@
 
     public function getColumn($ind) {
       return $this->columns[$ind];
+    }
+
+    public function nbOfColumns() {
+      return count($this->columns);
     }
 
     public function setTitle($newTitle) {
@@ -38,7 +42,13 @@
     public function insertColumn($ind, $col) {
       if (isset($ind) && is_int($ind)
       && isset($col) && is_a($col, 'Column')) {
-        array_splice($this->columns, $ind, 0, $col);
+        array_splice($this->columns, $ind, 0, array($col));
+      }
+    }
+
+    public function appendColumn($col) {
+      if (isset($col) && is_a($col, 'Column')) {
+        array_push($this->columns, $col);
       }
     }
 

@@ -6,11 +6,11 @@ class Task {
   private $deadline;
   private $color;
 
-  public function __construct() {
+  public function __construct($desc = '', $affect = NULL, $deadline = NULL) {
     $this->id = -1;
-    $this->desc = '';
-    $this->affect = '';
-    $this->deadline = '';
+    $this->desc = $desc;
+    $this->affect = $affect;
+    $this->deadline = $deadline;
     $this->color = 'DD0'; // jaune
   }
 

@@ -6,9 +6,9 @@
     private $title;
     private $tasks;
 
-    public function __construct() {
+    public function __construct($title = 'New column') {
       $this->id = -1;
-      $this->title = '';
+      $this->title = $title;
       $this->tasks = array();
     }
 
@@ -38,7 +38,13 @@
     public function insertTask($ind, $task) {
       if (isset($ind) && is_int($ind)
       && isset($task) && is_a($task, 'Task')) {
-        array_splice($this->tasks, $ind, 0, $task);
+        array_splice($this->tasks, $ind, 0, array($task));
+      }
+    }
+
+    public function appendTask($task) {
+      if (isset($task) && is_a($task, 'Task')) {
+        array_push($this->tasks, $task);
       }
     }
 
