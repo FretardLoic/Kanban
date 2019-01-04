@@ -1,0 +1,20 @@
+
+.menu li {
+	display: inline;
+}
+
+
+.menu a {
+	background-color: #eee;
+	color: black;
+	padding: 12px;
+	text-decoration: none; 
+}
+
+.menu a:hover {
+  background-color: #ccc; 
+}
+
+ul.menu {
+	text-align: center;
+}
